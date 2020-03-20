@@ -97,10 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b0075d2d66a3034b94152b547089aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 3
+  power: 2
   maxSpeed: 7
   reverseAcceleration: 0.4
-  forceJump: 1
+  forceJump: 4
   superGhost: 0
 --- !u!50 &9105064727970702307
 Rigidbody2D:

@@ -11,15 +11,37 @@ public class GameManager : MonoBehaviour
     {
         return _gameManager;
     }
-    [SerializeField] GameObject playerCan;
-    [SerializeField] GameObject win;
-    [SerializeField] GameObject Lose;
-    [SerializeField] GameObject playerP;
-    #region player
-    public PlayerController player { get; private set; }
+    private void Awake()
+    {
+        if (GameManager.Instance() == null)
+            _gameManager = this;
+        DontDestroyOnLoad(this);
+    }
+    #region canvas
+    GameObject win;
+    GameObject Lose;
+    GameObject playerCan;
     public Text hint;
+    public Text moneyText;
+    public Transform canvas
+    {
+        set
+        {
+            win = value.GetChild(0).gameObject;
+            Lose = value.GetChild(1).gameObject;
+            if (value.childCount > 2)
+            {
+                playerCan = value.GetChild(2).gameObject;
+                moneyText = playerCan.transform.GetChild(0).GetComponent<Text>();
+                hint = playerCan.transform.GetChild(1).GetComponent<Text>();
+            }
+        }
+    }
+    #endregion
+    #region player
+    [SerializeField] GameObject playerP;
+    public PlayerController player { get; private set; }
     private int _money;
-    [SerializeField] Text moneyText;
     [SerializeField] int startHelse;
     int helse;
     public int Money
@@ -39,14 +61,7 @@ public class GameManager : MonoBehaviour
     public int skore;
     [SerializeField] int requiredAccount;
     Transform spavnPoint;
-    string scene = "Main";
-
-    private void Awake()
-    {
-        if (GameManager.Instance() == null)
-            _gameManager = this;
-        DontDestroyOnLoad(this);
-    }
+    string scene;
     void Start()
     {
     }
@@ -56,6 +71,7 @@ public class GameManager : MonoBehaviour
     {
 
     }
+    [SerializeField] string[] scenes;
     public void newSpavn(Transform spavn)
     {
         spavnPoint = spavn;
@@ -72,6 +88,13 @@ public class GameManager : MonoBehaviour
     public void restart()
     {
         SceneManager.LoadScene(scene);
+        print("restart");
+    }
+    public void load(int scenIndex)
+    {
+        print("load");
+        //scene = scenes[scenIndex];
+        SceneManager.LoadScene("Scenes/levlTest");
     }
     public void EndGame(bool victory)
     {

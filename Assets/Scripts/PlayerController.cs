@@ -15,9 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Range(0, 5)] float reverseAcceleration;
     [SerializeField] [Range(1, 10)] int forceJump;
     public bool superGhost = false;
-    bool air = false;
+    public bool canForse = false;
     bool canJump = true;
-    float time = 0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,23 +27,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (FindObjectOfType<teleport>().isTimeStarted)
-        {
-
-            time += Time.deltaTime;
-            if(time >= 1f)
-            {
-                FindObjectOfType<teleport>().ChangeTimeStartedStatus(false);
-                time = 0f;
-            }
-        }*/
         float h = CrossPlatformInputManager.GetAxis("Horizontal");
         float v = CrossPlatformInputManager.GetAxis("Vertical");
         Vector2 speed = rb.velocity;
         speed.x -= reverseAcceleration * Math.Sign(speed.x);
-        if (h != 0)
+        if (h != 0 && canForse)
         {
-            if (/*!FindObjectOfType<teleport>().isTimeStarted*/ true)
+            if (true)
             {
                 if (h > 0)
                 {
@@ -81,7 +70,6 @@ public class PlayerController : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        air = false;
         if (collision.gameObject.GetComponent<Bonus>())
             collision.gameObject.GetComponent<Bonus>().Use(this);
     }
@@ -91,9 +79,5 @@ public class PlayerController : MonoBehaviour
             GameManager.Instance().hint.text = collision.gameObject.GetComponent<triggerZone>().txt;
             if (Input.GetKeyDown(KeyCode.E))
             collision.gameObject.GetComponent<triggerZone>().Use(this);
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        air = true;
     }
 }
