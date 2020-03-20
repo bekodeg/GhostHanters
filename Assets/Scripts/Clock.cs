@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 public class Clock : MonoBehaviour
 {
+    #region singleton
     private static Clock _clock;
     public static Clock Instance()
     {
@@ -15,43 +17,43 @@ public class Clock : MonoBehaviour
             _clock = this;
         DontDestroyOnLoad(this);
     }
+    #endregion
 
-
-    public List<queuing> timerQueue;
-    public (int, int) time;
-    float counter = 0.0f;
-
+    public List<Timer> timers;
     private void Start()
     {
-        timerQueue = new List<queuing>();
-        time = (0, 0);
+        timers = new List<Timer>();
+    }
+
+    public void SetTimer(float seconds, UnityAction onEnd)
+    {
+        Timer t = new Timer(seconds, onEnd);
+        timers.Add(t);
     }
 
     // Update is called once per frame
     void Update()
     {
-        counter += Time.deltaTime;
-        if (counter >= 0)
+        foreach (Timer timer in timers)
         {
-            time.Item1 += 1;
-            time.Item2 += time.Item1 / 60;
-            time.Item1 %= 60;
-            CheckTimer();
-        }
-    }
-    void CheckTimer()
-    {
-        for (int i = 0; i < timerQueue.Count; i++)
-        {
-            if (timerQueue[i].time == time)
-                timerQueue[i].func();
+            timer.val -= Time.deltaTime;
+            if (timer.val <= 0f)
+            {
+                timer.OnEnd.Invoke();
+                print("tick!");
+                timers.Remove(timer);
+            }
         }
     }
 }
-public class queuing
+public class Timer
 {
-    public (int, int) time;
-    public delegate void voi();
-    public voi func;
-    public bool 
+    public float val;
+    public UnityAction OnEnd;
+
+    public Timer(float seconds, UnityAction action)
+    {
+        this.val = seconds;
+        this.OnEnd = action;
+    }
 }

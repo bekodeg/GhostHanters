@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] [Range(0, 5)] float reverseAcceleration;
     [SerializeField] [Range(1, 10)] int forceJump;
     public bool superGhost = false;
-    public bool canForse = false;
+    public bool CanMove { get; set; } = true;
     bool canJump = true;
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         float v = CrossPlatformInputManager.GetAxis("Vertical");
         Vector2 speed = rb.velocity;
         speed.x -= reverseAcceleration * Math.Sign(speed.x);
-        if (h != 0 && canForse)
+        if (h != 0 && CanMove)
         {
             if (true)
             {
