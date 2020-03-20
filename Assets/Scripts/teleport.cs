@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class teleport : MonoBehaviour
 {
@@ -10,11 +11,16 @@ public class teleport : MonoBehaviour
     bool revers;
     Collider2D beneficiary;
     public bool isTimeStarted;
-
+    UnityAction OnTeleportBegin;
+    void ChangePlayer()
+    {
+        GameManager.Instance().player.CanMove = true;
+    }
     private void Start()
     {
         revers = standartR;
         beneficiary = standartBen;
+        OnTeleportBegin = ChangePlayer;
     }
     public void ChangeTimeStartedStatus(bool s)
     {
@@ -27,6 +33,9 @@ public class teleport : MonoBehaviour
             isTimeStarted = true;
             if (box.attempts <= 0)
             {
+                GameManager.Instance().player.CanMove = false;
+                Clock.Instance().SetTimer(1f, OnTeleportBegin);
+
                 revers = true;
                 beneficiary = gameObject.GetComponent<Collider2D>();
             }
