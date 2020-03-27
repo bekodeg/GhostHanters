@@ -7,19 +7,22 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float power = 3.0f;
+    [SerializeField] float MaxPower = 5.0f;
+    public float power;
 
     SpriteRenderer spriteRen;
     Rigidbody2D rb;
-    [SerializeField] [Range(0, 10)] float maxSpeed;
-    [SerializeField] [Range(0, 5)] float reverseAcceleration;
-    [SerializeField] [Range(1, 10)] int forceJump;
+    [SerializeField] [Range(0, 100)] float maxSpeed;
+    [SerializeField] [Range(0, 10)] float reverseAcceleration;
+    [SerializeField] [Range(1, 100)] int forceJump;
+    [SerializeField] [Range(0, 100)] int minPover;
     public bool superGhost = false;
     public bool CanMove { get; set; } = true;
     bool canJump = true;
     // Start is called before the first frame update
     void Start()
     {
+        power = MaxPower;
         spriteRen = transform.GetComponent<SpriteRenderer>();
         rb = transform.GetComponent<Rigidbody2D>();
     }
@@ -33,18 +36,15 @@ public class PlayerController : MonoBehaviour
         speed.x -= reverseAcceleration * Math.Sign(speed.x);
         if (h != 0 && CanMove)
         {
-            if (true)
+            if (h > 0)
             {
-                if (h > 0)
-                {
-                    spriteRen.flipX = true;
-                    speed.x = maxSpeed;
-                }
-                else
-                {
-                    spriteRen.flipX = false;
-                    speed.x = -maxSpeed;
-                }
+                spriteRen.flipX = true;
+                speed.x = maxSpeed;
+            }
+            else
+            {
+                spriteRen.flipX = false;
+                speed.x = -maxSpeed;
             }
         }
         if (power == 0)
@@ -53,16 +53,15 @@ public class PlayerController : MonoBehaviour
         }
         if (canJump && v > 0 && power > 0)
         {
-            power -= Time.deltaTime;
-            speed.y = forceJump;
+            power -= Time.deltaTime * 2.2f;
+            speed.y += forceJump;
         }
-        else if (power < 3.0f)
+        else if (power < MaxPower)
         {
             power += Time.deltaTime * 0.5f;
         }
-
-        power = Mathf.Clamp(power, 0f, 3f);
-        if (power == 3.0f) canJump = true;
+        power = Mathf.Clamp(power, 0f, MaxPower);
+        if (power >= minPover) canJump = true;
         int x = Math.Sign(speed.x);
         speed.y = Mathf.Clamp(speed.y, -forceJump*1.5f, forceJump);
         speed.x = Mathf.Clamp(speed.x, -maxSpeed * 3, maxSpeed * 3);
