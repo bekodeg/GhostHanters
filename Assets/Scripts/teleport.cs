@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 public class teleport : MonoBehaviour
@@ -10,7 +8,6 @@ public class teleport : MonoBehaviour
     [SerializeField] theExchangerOfCoins box;
     bool revers;
     Collider2D beneficiary;
-    public bool isTimeStarted;
     UnityAction OnTeleportBegin;
     void ChangePlayer()
     {
@@ -22,25 +19,19 @@ public class teleport : MonoBehaviour
         beneficiary = standartBen;
         OnTeleportBegin = ChangePlayer;
     }
-    public void ChangeTimeStartedStatus(bool s)
-    {
-        isTimeStarted = s;
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == GameManager.Instance().player.gameObject)
         {
-            isTimeStarted = true;
+            GameManager.Instance().player.CanMove = false;
             if (box.attempts <= 0)
             {
-                GameManager.Instance().player.CanMove = false;
-                Clock.Instance().SetTimer(1f, OnTeleportBegin);
-
                 revers = true;
                 beneficiary = gameObject.GetComponent<Collider2D>();
             }
             else
                 box.attempts -= 1;
+            Clock.Instance().SetTimer(1f, OnTeleportBegin);
         }
         if (revers && collision.attachedRigidbody)
         {
@@ -66,11 +57,5 @@ public class teleport : MonoBehaviour
         }
         rel.z = 40;
         collision.transform.position = rel;
-        /*
-        void Update()
-        {
-            if
-        }
-        */
     }
 }

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class triggerZone : MonoBehaviour
 {
-    public string txt; //{ get; private set; }
+    //public string txt; //{ get; private set; }
+    [SerializeField] string useTxt;
 
-    public virtual void Use(PlayerController pc)
+    public virtual void Use()
     {
-        GameManager.Instance().hint.text = txt;
+        if (useTxt != null)
+            GameManager.Instance().hint.text = useTxt;
     }
 }

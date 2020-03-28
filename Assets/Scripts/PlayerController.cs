@@ -75,8 +75,8 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<triggerZone>())
-            GameManager.Instance().hint.text = collision.gameObject.GetComponent<triggerZone>().txt;
-            if (Input.GetKeyDown(KeyCode.E))
-            collision.gameObject.GetComponent<triggerZone>().Use(this);
+        {
+            collision.gameObject.GetComponent<triggerZone>().Use();
+        }
     }
 }

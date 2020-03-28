@@ -1,26 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class theExchangerOfCoins : triggerZone
 {
     public int attempts = 0;
-    private void Start()
+    [SerializeField] Text stat;
+    public override void Use()
     {
-        BoxCollider2D collider = transform.GetComponent<BoxCollider2D>();
-        for (int i= 1; i < transform.childCount; i++)
-        {
-            BoxCollider2D box = gameObject.AddComponent<BoxCollider2D>();
-            box.size = collider.size;
-            box.offset = transform.GetChild(i).position;
-        }
-    }
-    public override void Use(PlayerController pc)
-    {
-        if (GameManager.Instance().Money > 0)
+        GameManager.Instance().hint.text = "Pres E to exchenge";
+        if (Input.GetKeyDown(KeyCode.E) && GameManager.Instance().Money > 0)
         {
             attempts += 1;
+            stat.text = attempts.ToString("00");
             GameManager.Instance().Money -= 1;
+
         }
     }
 }

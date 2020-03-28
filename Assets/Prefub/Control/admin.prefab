@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7450841754371624537}
   - component: {fileID: 7450841754371624538}
+  - component: {fileID: 4378030863406180033}
   m_Layer: 0
   m_Name: admin
   m_TagString: Untagged
@@ -50,3 +51,15 @@ MonoBehaviour:
   skore: 0
   requiredAccount: 0
   scenes: []
+--- !u!114 &4378030863406180033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7450841754371624539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78a9951111fc6c4cbf5c6c3c109c961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
