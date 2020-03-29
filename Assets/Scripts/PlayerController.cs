@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<Bonus>())
-            collision.gameObject.GetComponent<Bonus>().Use(this);
+            collision.gameObject.GetComponent<Bonus>().Use();
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

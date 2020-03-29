@@ -30,7 +30,10 @@ public class teleport : MonoBehaviour
                 beneficiary = gameObject.GetComponent<Collider2D>();
             }
             else
+            {
                 box.attempts -= 1;
+                box.
+            }
             Clock.Instance().SetTimer(1f, OnTeleportBegin);
         }
         if (revers && collision.attachedRigidbody)

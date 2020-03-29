@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class theExchangerOfCoins : triggerZone
 {
     public int attempts = 0;
-    [SerializeField] Text stat;
+    public Text stat;
     public override void Use()
     {
         GameManager.Instance().hint.text = "Pres E to exchenge";
@@ -13,7 +13,6 @@ public class theExchangerOfCoins : triggerZone
             attempts += 1;
             stat.text = attempts.ToString("00");
             GameManager.Instance().Money -= 1;
-
         }
     }
 }
