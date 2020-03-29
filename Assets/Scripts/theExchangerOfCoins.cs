@@ -1,16 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class theExchangerOfCoins : triggerZone
 {
     public int attempts = 0;
-    public override void Use(PlayerController pc)
+    [SerializeField] Text stat;
+    public override void Use()
     {
-        if (GameManager.Instance().Money > 0)
+        GameManager.Instance().hint.text = "Pres E to exchenge";
+        if (Input.GetKeyDown(KeyCode.E) && GameManager.Instance().Money > 0)
         {
             attempts += 1;
+            stat.text = attempts.ToString("00");
             GameManager.Instance().Money -= 1;
+
         }
     }
 }

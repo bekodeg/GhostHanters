@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8781718810069339513
+--- !u!1 &2955287819623539752
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,10 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8781718810069339515}
-  - component: {fileID: 8781718810069339514}
-  - component: {fileID: 415744741292651391}
-  - component: {fileID: 4226058048399534284}
+  - component: {fileID: 2955287819623539754}
+  - component: {fileID: 2955287819623539755}
+  - component: {fileID: 7671984496047505821}
+  - component: {fileID: 1162691491595168252}
+  - component: {fileID: 7926035625796507527}
+  - component: {fileID: 3526013740731087570}
   m_Layer: 0
   m_Name: money
   m_TagString: Money
@@ -19,27 +21,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8781718810069339515
+--- !u!4 &2955287819623539754
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8781718810069339513}
+  m_GameObject: {fileID: 2955287819623539752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.22, y: 6.59, z: 472.1}
-  m_LocalScale: {x: 0.20660698, y: 0.20660698, z: 0.20660698}
+  m_LocalPosition: {x: 0, y: 47.89, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8781718810069339514
+--- !u!212 &2955287819623539755
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8781718810069339513}
+  m_GameObject: {fileID: 2955287819623539752}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -47,6 +49,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -71,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 60b3ad0a94032fe4cb15e35d4f308e46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17f0c3961089923488b777cb7eed28b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,13 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &415744741292651391
+--- !u!114 &7671984496047505821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2955287819623539752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc853f7ba6fd2b74a8234dfb7982196d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txt: you collected a coin
+  suum: 5
+--- !u!58 &1162691491595168252
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8781718810069339513}
+  m_GameObject: {fileID: 2955287819623539752}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -97,18 +114,45 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 4.19
---- !u!114 &4226058048399534284
-MonoBehaviour:
+  m_Radius: 8.58
+--- !u!50 &7926035625796507527
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8781718810069339513}
+  m_GameObject: {fileID: 2955287819623539752}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!231 &3526013740731087570
+SpringJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2955287819623539752}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc853f7ba6fd2b74a8234dfb7982196d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txt: you collected a coin
-  suum: 5
+  serializedVersion: 4
+  m_EnableCollision: 1
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 47.89}
+  m_AutoConfigureDistance: 0
+  m_Distance: 3.5
+  m_DampingRatio: 0
+  m_Frequency: 1

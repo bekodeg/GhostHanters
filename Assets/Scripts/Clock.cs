@@ -42,6 +42,7 @@ public class Clock : MonoBehaviour
                 timer.OnEnd.Invoke();
                 print("tick!");
                 timers.Remove(timer);
+                break;
             }
         }
     }

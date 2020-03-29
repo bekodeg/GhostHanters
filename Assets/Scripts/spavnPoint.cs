@@ -11,9 +11,9 @@ public class spavnPoint : triggerZone
         if (firstSpavn)
             GameManager.Instance().firstSpavn(transform);
     }
-    public override void Use(PlayerController pc)
+    public override void Use()
     { 
         GameManager.Instance().newSpavn(transform);
-        base.Use(pc);
+        base.Use();
     }
 }
