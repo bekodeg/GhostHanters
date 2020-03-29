@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class theExchangerOfCoins : triggerZone
+public class CoinAcceptor : triggerZone
 {
     public int attempts = 0;
     [SerializeField] Text stat;

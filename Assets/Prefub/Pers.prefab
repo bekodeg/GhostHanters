@@ -100,10 +100,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxPower: 5
   power: 2
-  maxSpeed: 7
-  reverseAcceleration: 0.4
-  forceJump: 4
-  minPover: 0
+  maxSpeed: 35
+  reverseAcceleration: 0.6
+  forceJump: 14
+  minPover: 3
   superGhost: 0
 --- !u!50 &9105064727970702307
 Rigidbody2D:

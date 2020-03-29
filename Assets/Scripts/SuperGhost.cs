@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SuperGost : Bonus
+public class SuperGhost : Bonus
 {
     public override void Use(PlayerController pc)
     {

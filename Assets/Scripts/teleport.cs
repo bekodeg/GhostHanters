@@ -5,7 +5,7 @@ public class teleport : MonoBehaviour
 {
     [SerializeField] bool standartR;
     [SerializeField] Collider2D standartBen;
-    [SerializeField] theExchangerOfCoins box;
+    [SerializeField] CoinAcceptor box;
     bool revers;
     Collider2D beneficiary;
     UnityAction OnTeleportBegin;
