@@ -274,12 +274,12 @@ PrefabInstance:
     - target: {fileID: 7450841754371624538, guid: b514eed0e4c3ade478b102b2d8c11ff7,
         type: 3}
       propertyPath: scenes.Array.data[0]
-      value: Assets/Scenes/levlTest.unity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7450841754371624538, guid: b514eed0e4c3ade478b102b2d8c11ff7,
         type: 3}
       propertyPath: scenes.Array.data[1]
-      value: Assets/Scenes/levlTest.unity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7450841754371624538, guid: b514eed0e4c3ade478b102b2d8c11ff7,
         type: 3}
@@ -289,7 +289,7 @@ PrefabInstance:
     - target: {fileID: 7450841754371624538, guid: b514eed0e4c3ade478b102b2d8c11ff7,
         type: 3}
       propertyPath: requiredAccount
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7450841754371624539, guid: b514eed0e4c3ade478b102b2d8c11ff7,
         type: 3}

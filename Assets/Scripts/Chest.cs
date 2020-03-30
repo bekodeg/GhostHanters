@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : Bonus
+public class Chest : triggerZone
 {
-    public override void Use(PlayerController pc)
+    public override void Use()
     {
         GameManager.Instance().EndGame(true);
     }
