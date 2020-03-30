@@ -296,6 +296,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: admin
       objectReference: {fileID: 0}
+    - target: {fileID: 7450841754371624538, guid: b514eed0e4c3ade478b102b2d8c11ff7,
+        type: 3}
+      propertyPath: startHelse
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450841754371624538, guid: b514eed0e4c3ade478b102b2d8c11ff7,
+        type: 3}
+      propertyPath: requiredAccount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450841754371624539, guid: b514eed0e4c3ade478b102b2d8c11ff7,
+        type: 3}
+      propertyPath: m_Name
+      value: admin
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b514eed0e4c3ade478b102b2d8c11ff7, type: 3}
 --- !u!1 &644752281

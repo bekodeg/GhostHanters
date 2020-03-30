@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: fb63b73ab9c067745904f256b009036b
+=======
+<<<<<<<< HEAD:Assets/Animatin.meta
+guid: 845090af8c78ee34a9e9bffbc8aaa1f7
+========
+guid: fb63b73ab9c067745904f256b009036b
+>>>>>>>> clock:Assets/Prefub/TpComponents.meta
+>>>>>>> clock
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
