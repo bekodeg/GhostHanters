@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    #region singleton
     private static GameManager _gameManager;
     public static GameManager Instance()
     {
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
             _gameManager = this;
         DontDestroyOnLoad(this);
     }
+    #endregion singleton
     #region canvas
     GameObject win;
     GameObject Lose;
@@ -61,17 +63,7 @@ public class GameManager : MonoBehaviour
     public int skore;
     [SerializeField] int requiredAccount;
     Transform spavnPoint;
-    string scene;
-    void Start()
-    {
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    [SerializeField] string[] scenes;
     public void newSpavn(Transform spavn)
     {
         spavnPoint = spavn;
@@ -87,14 +79,13 @@ public class GameManager : MonoBehaviour
     }
     public void restart()
     {
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         print("restart");
     }
     public void load(int scenIndex)
     {
         print("load");
-        //scene = scenes[scenIndex];
-        SceneManager.LoadScene("Scenes/levlTest");
+        SceneManager.LoadScene(scenIndex);
     }
     public void EndGame(bool victory)
     {

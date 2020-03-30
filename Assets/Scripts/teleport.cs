@@ -32,7 +32,7 @@ public class teleport : MonoBehaviour
             else
             {
                 box.attempts -= 1;
-                box.
+                box.stat.text = box.attempts.ToString("00");
             }
             Clock.Instance().SetTimer(1f, OnTeleportBegin);
         }

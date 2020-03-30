@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SuperGost : Bonus
 {
-    public override void Use(PlayerController pc)
+    public override void Use()
     {
-        pc.superGhost = true;
-        base.Use(pc);
+        GameManager.Instance().player.superGhost = true;
+        base.Use();
     }
 }
