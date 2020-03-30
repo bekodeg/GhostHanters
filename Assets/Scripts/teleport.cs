@@ -33,8 +33,12 @@ public class teleport : MonoBehaviour
             {
                 box.attempts -= 1;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 box.
+=======
+                box.stat.text = box.attempts.ToString("00");
+>>>>>>> Branch_323d027a
             }
 >>>>>>> clock
             Clock.Instance().SetTimer(1f, OnTeleportBegin);
